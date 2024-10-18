@@ -10,6 +10,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 if [ -f $sysresources ]; then
 
 
+
     xrdb -merge $sysresources
 
 fi
@@ -19,6 +20,7 @@ if [ -f $sysmodmap ]; then
 fi
 
 if [ -f "$userresources" ]; then
+
 
 
     xrdb -merge "$userresources"
@@ -37,10 +39,15 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  done
  unset f
 fi
-pulseaudio -k &
-pulseaudio --start &
-picom &
-nitrogen --restore
-slstatus &
 
- exec dwm
+#For on the auto Numlock in startup 
+xdotool key Num_Lock &
+# Disable page down key automatic press
+#xmodmap -e 'keycode 117=' &
+#pulseaudio --start &
+/home/sum/.local/bin/rsetbg &
+dwmblocks &
+picom --config ~/.config/picom/picom.conf & 
+sxhkd -c ~/.config/sxhkd/sxhkdrc-dwm &
+xautolock -time 10 -locker slock &
+exec dwm

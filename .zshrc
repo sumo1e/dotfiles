@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$PATH:/sbin:/bin:/usr/local/bin:$HOME/.local/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -60,7 +60,7 @@ ZSH_THEME="alanpeabody"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+ HIST_STAMPS="dd/mm/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -95,17 +95,18 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
+# Set a Personal aliases, file and source in .zshrc file which is located in file ~/.config/.aliasrc
+source ~/.config/alias/.aliasrc
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-#alias ohmyzsh="mate ~/.oh-my-zsh"
-source "$HOME/.config/aliasrc"
-
-# Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-
-#Load pywal color scheame
-# Import colorscheme from 'wal' asynchronously
+ alias zshconfig="vim  ~/.zshrc"
+ alias ohmyzsh="vim ~/.oh-my-zsh"
+ alias hyprconfig="vim ~/.config/hypr/hyprland.conf"
+ alias aliasrc="vim ~/.config/alias/.aliasrc"
+ alias sucklessconfig="vim ~/.local/src/suckless.org/"
+ alias dwmconfig="cd ~/.local/src/suckless.org/dwm/ && vim config.h"
+ alias sxhkdconf="vim ~/.config/sxhkd/sxhkdrc"
+ alias dwmrc="cd ~/.local/src/suckless.org/dwm/"
+# # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.
 # ( ) # Hide shell job control messages.
 (cat ~/.cache/wal/sequences &)
@@ -116,6 +117,5 @@ cat ~/.cache/wal/sequences
 # To add support for TTYs this line can be optionally added.
 source ~/.cache/wal/colors-tty.sh
 
-#style
-#neofetch
-echo "Hare Krishna (^_^)"
+export TERM=xterm-256color
+

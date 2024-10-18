@@ -1,0 +1,28 @@
+# make sxhkd reload its configuration files:
+super + Escape
+        pkill -USR1 -x sxhkd && notify-send "Reloaded..."
+
+# wm independent hotkeys
+#Volume Key
+XF86AudioRaiseVolume 
+              amixer set Master 5%+
+XF86AudioLowerVolume
+              amixer set Master 5%-
+XF86AudioMute
+              amixer set Master {mute, unmute}
+#screenshot
+@Print
+       maim ~/pics/ss/$(date +%d%h%y-%H:%M:%S).png | notify-send "S_S Taken..."
+#screenshot of selected area
+alt + shift + p
+                maim --select | tee ~/pics/ss/$(date +%d%h%y-%H:%M:%S).png | xclip -selection clipboard -t image/png
+
+#Logical ScreenShot...
+
+#Brightness
+XF86MonBrightness{Up,Down}
+               brightnessctl set 10{+,-}
+
+# quit any application
+
+

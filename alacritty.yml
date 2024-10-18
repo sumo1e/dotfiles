@@ -1,0 +1,57 @@
+# Alacritty Configuration
+
+# Window settings
+window:
+  dimensions:
+    columns: 120
+    lines: 30
+  padding:
+    x: 5
+    y: 5
+  decorations: full
+  dynamic_padding: false
+
+# Font settings
+font:
+  normal:
+    family: "JetBrains Mono"
+    style: Regular
+  bold:
+    family: "JetBrains Mono"
+    style: Bold
+  italic:
+    family: "JetBrains Mono"
+    style: Italic
+  size: 12.0
+
+
+# Shell configuration
+shell:
+  program: /bin/zsh
+  args:
+    - --login
+
+# Scrolling
+scrolling:
+  history: 10000
+  multiplier: 3
+
+# Key bindings
+key_bindings:
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
+
+  # Mouse bindings configuration
+
+mouse:
+  bindings:
+    - { mouse: Middle, action: PasteSelection }
+    - { mouse: Right, action: Paste }
+    - { mouse: Left, action: Select }
+
+
+
+
+# Live config reload
+live_config_reload: true
+
